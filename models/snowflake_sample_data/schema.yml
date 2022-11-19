@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: SAMPLES_DB_AWS_AP_SOUTHEAST_2
+    description: 'A sample db provided by snowflake'
+    database: SAMPLES_DB_AWS_AP_SOUTHEAST_2
+    schema: TPCDS_SF10TCL
+    tables:
+      - name: STORE_SALES
+        description: 'Details about sales'
+      # - name: customers
+
+  # - name: stripe
+  #   tables:
+  #     - name: payments

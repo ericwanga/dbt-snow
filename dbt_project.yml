@@ -33,6 +33,17 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   my_dbt_snow_project:
-    # Config indicated by + and applies to all files under models/example/
-    example:
+    # Config indicated by + and applies to all files under models/staging/
+    staging:
       +materialized: view
+      +schema: staging # by default is concatenated to PUBLIC_staging, use macro to override it
+    # pre-hook: "{{ insert_audit_record('model start') }}"
+    # post-hook: "{{ insert_audit_record('model end') }}"
+    # directory specific configuration to apply on all models within it
+    # staging:
+    #   +schema: staging
+    # marts:
+    #   warehouse:
+    #     +schema: warehouse # subdirectories can be given additional configurations
+    #   reporting:
+    #     +schema: reporting # subdirectory additional configuration
