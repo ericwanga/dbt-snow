@@ -20,6 +20,8 @@ validation_errors as (
         and team not in ('Lakers', 'Clippers')
 )
 
+-- select count(*) won't work -> need to return nothing for a pass
+-- return "0" or "1" is still 1 record, which is not "nothing", and will fail the test
 select 
     *
 from validation_errors
